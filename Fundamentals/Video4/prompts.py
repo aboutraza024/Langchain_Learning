@@ -3,7 +3,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 import os
 load_dotenv()
-prompt = ChatPromptTemplate.from_messages([
+
+# dynamic list of messages and for single we just use prompt template
+prompt = ChatPromptTemplate([
     ("system","you are an help ful ai assitant. your name is {name}"),
     ("human","what is the weather like in {location}?")
 ])
