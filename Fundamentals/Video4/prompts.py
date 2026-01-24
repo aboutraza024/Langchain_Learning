@@ -8,7 +8,9 @@ prompt = ChatPromptTemplate.from_messages([
     ("human","what is the weather like in {location}?")
 ])
 model=ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite",google_api_key=os.getenv("GOOGLE_GEMINI_KEY"))
-prompt1=prompt.invoke({"name":"weather bot","location":"islamabad"})
+name=input("Enter bot name:")
+location=input("Enter location:")
+prompt1=prompt.invoke({"name":name,"location":location})
 
 res=model.invoke(prompt1)
 print(res.content)
